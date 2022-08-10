@@ -14,9 +14,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="{{asset('app.97259382.css') }}">
-
-    @vite('resources/css/app.css')
+    <link rel="stylesheet" href="{{asset('app.51d85903.css') }}">
+{{--
+    @vite('resources/css/app.css')  --}}
     <!-- Styles -->
     <style>
         [x-cloak] {
@@ -136,7 +136,7 @@
 
     </div> --}}
 
-    <script src="{{asset('build/assets/app.b4da555c.js')}}"></script>
+    <script src="{{asset('app.e371ae87.js')}}"></script>
     <script src="https://unpkg.com/@popperjs/core@2.9.1/dist/umd/popper.min.js" charset="utf-8"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script defer src="https://js.stripe.com/v2/"></script>
