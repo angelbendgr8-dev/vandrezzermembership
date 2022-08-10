@@ -14,10 +14,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ asset('app.51d85903.css') }}">
+    <link rel="stylesheet" href="{{ asset('app.905c5bb5.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    {{-- @vite('resources/css/app.css') --}}
+    {{--  @vite('resources/css/app.css')  --}}
     <!-- Styles -->
     <style>
         [x-cloak] {
@@ -118,22 +118,33 @@
 
     <div class="mx-auto w-[100%] md:w-[50%]">
         <div class="   shadow-xl bg-white pt-4 pb-16 mt-4">
+
             <form role="form" action="{{ route('stripe.process.payment') }}" method="post"
                 class="require-validation px-12 flex flex-col  justify-center" data-cc-on-file="false"
                 data-stripe-publishable-key="{{ env('STRIPE_KEY') }}" id="payment-form">
                 @csrf
+                <div class="error hidden bg-red-300 py-2 border rounded-md border-red-600">
+                    <div class="alert text-white  text-center">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                        <p>{{ Session::get('success') }}</p><br>
+                    </div>
 
+                </div>
 
                 <div class='flex flex-col  w-[100%]'>
                     <div class='flex flex-col required'>
                         <label class='control-label'>Name on Card</label>
                         <input
-                            class=' p-2  focus:border-[#EF7D00] focus:ring-0 duration-300 rounded-md  border-2  border-gray-300 '
+                            class=' p-2  focus:border-[#EF7D00] focus:ring-0 duration-300 rounded-md  border-2  border-gray-300'
                             type='text'>
+                        <div class="error">
+
+                        </div>
                     </div>
                     <div class=' w-full my-4 mx-auto flex flex-col required'>
                         <label class='control-label'>Card Number</label>
-                        <input autocomplete='off' onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"
+                        <input autocomplete='off'
+                            onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"
                             class=' p-2  focus:border-[#EF7D00] focus:ring-0 duration-300 rounded-md  border-2  border-gray-300  card-number'
                             type='number'>
                     </div>
@@ -142,21 +153,25 @@
                 <div class='grid grid-cols-1 content-center md:grid-cols-3 w-[100%]'>
                     <div class='flex py-2 md:py-0  flex-col cvc required'>
                         <label class='control-label'>CVC</label>
-                        <input autocomplete='off' onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"  maxlength="3"
+                        <input autocomplete='off'
+                            onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"
+                            maxlength="3"
                             class=' p-2  focus:border-[#EF7D00] focus:ring-0 duration-300 rounded-md  border-2  border-gray-300  card-cvc'
-                            placeholder='ex. 311'  type='number'>
+                            placeholder='ex. 311' type='number'>
                     </div>
                     <div class='flex  py-2 md:py-0 flex-col expiration required'>
                         <label class='control-label'>Expiration Month</label>
-                        <input maxlength="2" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"
+                        <input maxlength="2"
+                            onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"
                             class=' p-2  focus:border-[#EF7D00] focus:ring-0 duration-300 rounded-md  border-2  border-gray-300  card-expiry-month'
                             placeholder='MM' size='2' type='number'>
                     </div>
                     <div class='flex py-2 md:py-0  flex-col expiration required'>
                         <label class='control-label'>Expiration Year</label>
-                        <input maxlength='4' onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"
+                        <input maxlength='4'
+                            onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"
                             class=' p-2  focus:border-[#EF7D00] focus:ring-0 duration-300 rounded-md  border-2  border-gray-300  card-expiry-year'
-                            placeholder='YYYY'  type='number'>
+                            placeholder='YYYY' type='number'>
                     </div>
                 </div>
                 <div class="my-4">
@@ -196,7 +211,7 @@
 
     </div> --}}
 
-    <script src="{{ asset('app.e371ae87.jsp') }}"></script>
+    <script src="{{ asset('app.b4da555c.js') }}"></script>
     <script src="https://unpkg.com/@popperjs/core@2.9.1/dist/umd/popper.min.js" charset="utf-8"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -206,18 +221,19 @@
             var $form = $(".require-validation");
             $('form.require-validation').bind('submit', function(e) {
                 var $form = $(".require-validation"),
-                    inputSelector = ['input[type=email]', 'input[type=password]', 'input[type=text]',
+                    inputSelector = ['input[type=email]', 'input[type=number]', 'input[type=text]',
                         'input[type=file]', 'textarea'
                     ].join(', '),
                     $inputs = $form.find('.required').find(inputSelector),
                     $errorMessage = $form.find('div.error'),
                     valid = true;
+                    console.log($inputs)
                 $errorMessage.addClass('hide');
                 $('.has-error').removeClass('has-error');
                 $inputs.each(function(i, el) {
                     var $input = $(el);
                     if ($input.val() === '') {
-                        $input.parent().addClass('has-error');
+                        $input.addClass('border-red-300');
                         $errorMessage.removeClass('hide');
                         e.preventDefault();
                     }
@@ -237,7 +253,7 @@
             function stripeResponseHandler(status, response) {
                 if (response.error) {
                     $('.error')
-                        .removeClass('hide')
+                        .removeClass('hidden')
                         .find('.alert')
                         .text(response.error.message);
                 } else {
