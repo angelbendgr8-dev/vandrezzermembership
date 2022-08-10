@@ -38,18 +38,18 @@ class ActivateAgentAccount extends Component
         $this->branch = MembershipClub::whereUserId(Auth::id())->first();
         $ip = request()->ip(); //Dynamic IP address get
         //  dd($ip);
-        $locationData = Location::get($ip);
-         dd($locationData);
+        dd(Location::get($ip));
+        //  dd($locationData);
         // if (!$position) {
         //     $this->packages = AgentPackages::whereLocale('foreign')->get();
         // }
-        if($position->countryName === 'Nigeria'){
-            $this->packages = AgentPackages::whereLocale('local')->get();
-        }else{
-            $this->packages = AgentPackages::whereLocale('foreign')->get();
-            // $this->packages = AgentPackages::whereLocale('local')->get();
-            // dd($this->packages);
-        }
+        // if($position->countryName === 'Nigeria'){
+        //     $this->packages = AgentPackages::whereLocale('local')->get();
+        // }else{
+        //     $this->packages = AgentPackages::whereLocale('foreign')->get();
+        //     // $this->packages = AgentPackages::whereLocale('local')->get();
+        //     // dd($this->packages);
+        // }
     }
     public function Activate()
     {
