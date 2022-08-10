@@ -7,16 +7,15 @@ use Stripe\Charge;
 use Stripe\Stripe;
 use App\Models\User;
 use Livewire\Component;
-use Stripe\Checkout\Session;
 use App\Mail\AgentActivation;
 use App\Models\AgentPackages;
 use App\Models\MembershipClub;
-use Illuminate\Http\Client\Pool;
 use App\Models\RequestActivation;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+use Stevebauman\Location\Facades\Location;
 
 class ActivateAgentAccount extends Component
 {
@@ -37,11 +36,11 @@ class ActivateAgentAccount extends Component
         $this->branch = MembershipClub::whereUserId(Auth::id())->first();
         $ip = request()->ip(); //Dynamic IP address get
         //  dd($ip);
-        $position = \Location::get($ip);
+        $position = Location::get($ip);
         //  dd($position);
-        // if (!$position) {
-        //     $this->packages = AgentPackages::whereLocale('foreign')->get();
-        // }
+        if (!$position) {
+            $this->packages = AgentPackages::whereLocale('foreign')->get();
+        }
         if($position->countryName === 'Nigeria'){
             $this->packages = AgentPackages::whereLocale('foreign')->get();
         }else{
