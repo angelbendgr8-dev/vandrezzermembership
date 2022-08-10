@@ -131,22 +131,23 @@
                     </div>
                     <div class=' w-full my-4 mx-auto flex flex-col required'>
                         <label class='control-label'>Card Number</label>
-                        <input autocomplete='off' class=' p-2  focus:border-[#EF7D00] focus:ring-0 duration-300 rounded-md  border-2  border-gray-300  card-number' size='20' type='number'>
+                </div>
+                <input autocomplete='off' pattern="[0-9]" class=' p-2  focus:border-[#EF7D00] focus:ring-0 duration-300 rounded-md  border-2  border-gray-300  card-number' size='20' type='number'>
                     </div>
                 </div>
                 <div class='grid grid-cols-1 content-center md:grid-cols-3 w-[100%]'>
                     <div class='flex py-2 md:py-0  flex-col cvc required'>
                         <label class='control-label'>CVC</label>
-                        <input autocomplete='off' maxlength="3" class=' p-2  focus:border-[#EF7D00] focus:ring-0 duration-300 rounded-md  border-2  border-gray-300  card-cvc' placeholder='ex. 311' size='4'
+                        <input autocomplete='off' pattern="[0-9]" maxlength="3" class=' p-2  focus:border-[#EF7D00] focus:ring-0 duration-300 rounded-md  border-2  border-gray-300  card-cvc' placeholder='ex. 311' size='4'
                             type='number'>
                     </div>
                     <div class='flex  py-2 md:py-0 flex-col expiration required'>
                         <label class='control-label'>Expiration Month</label>
-                        <input maxlength="2" class=' p-2  focus:border-[#EF7D00] focus:ring-0 duration-300 rounded-md  border-2  border-gray-300  card-expiry-month' placeholder='MM' size='2' type='number'>
+                        <input maxlength="2" pattern="[0-9]" class=' p-2  focus:border-[#EF7D00] focus:ring-0 duration-300 rounded-md  border-2  border-gray-300  card-expiry-month' placeholder='MM' size='2' type='number'>
                     </div>
                     <div class='flex py-2 md:py-0  flex-col expiration required'>
                         <label class='control-label'>Expiration Year</label>
-                        <input maxlength='4' class=' p-2  focus:border-[#EF7D00] focus:ring-0 duration-300 rounded-md  border-2  border-gray-300  card-expiry-year' placeholder='YYYY' size='4' type='number'>
+                        <input maxlength='4' pattern="[0-9]" class=' p-2  focus:border-[#EF7D00] focus:ring-0 duration-300 rounded-md  border-2  border-gray-300  card-expiry-year' placeholder='YYYY' size='4' type='number'>
                     </div>
                 </div>
                 <div class="my-4">
