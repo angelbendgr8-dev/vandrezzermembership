@@ -63,6 +63,7 @@ class StripeController extends Controller
         Session::flash('success', 'Payment Successful !');
         return redirect(route('branch.update.details'));
         } catch (\Throwable $th) {
+            dd($th);
             return redirect(route('branch.update.details'));
         }
 
