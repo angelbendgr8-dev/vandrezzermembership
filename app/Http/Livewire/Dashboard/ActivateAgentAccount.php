@@ -56,9 +56,9 @@ class ActivateAgentAccount extends Component
         $validated = $this->validate();
         $selected = $this->package;
         // dd($selected);
-        $choosen = array_filter($this->packages->toArray(), function ($item) use ($selected) {
+        $choosen = array_values(array_filter($this->packages->toArray(), function ($item) use ($selected) {
             return $item['id'] == $selected;
-        });
+        }));
         // dd($choosen[0]);
         if ($choosen[0]['locale'] === 'local') {
             $this->payWithFlutter($choosen);
@@ -115,7 +115,7 @@ class ActivateAgentAccount extends Component
             $request->agent_package_id = $choosen[0]['id'];
             $request->save();
             $this->alert('success', 'Request sent successfully.');
-    
+
         // dd('stripe');
         // dd($choosen[0]['id']);
         return redirect(route('stripe.payment',$choosen[0]['id']));
