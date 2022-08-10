@@ -33,7 +33,7 @@ class UpdateDetails extends Component
             $this->checkPayment($status);
         }else{
             $activated = RequestActivation::whereUserId(Auth::id())->first();
-            if($activated->status === 'pending'){
+            if($activated && $activated->status === 'pending'){
                 $this->alert('success', 'Information updated successfully.');
                 $activated->delete();
             }else{
