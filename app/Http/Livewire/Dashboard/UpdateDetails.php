@@ -36,9 +36,11 @@ class UpdateDetails extends Component
             if($activated && $activated->status === 'pending'){
                 $this->alert('success', 'Information updated successfully.');
                 $activated->delete();
-            }else{
+            }else if($activated && $activated->status === 'completed'){
                 session()->flash('message', 'Payment successful, your Activation request has been sent to the admin.');
                 $activated->delete();
+            }else{
+                
             }
         }
 
