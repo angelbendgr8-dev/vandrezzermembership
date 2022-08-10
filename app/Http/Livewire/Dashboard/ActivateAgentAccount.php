@@ -106,7 +106,7 @@ class ActivateAgentAccount extends Component
     {
 
         Stripe::setApiKey(env('STRIPE_SECRET'));
-        dd('stripe');
+        // dd('stripe');
         header('Content-Type: application/json');
 
         // $YOUR_DOMAIN = 'http://vandrezzermembership.test/';
