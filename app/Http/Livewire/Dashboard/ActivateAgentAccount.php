@@ -52,6 +52,7 @@ class ActivateAgentAccount extends Component
     }
     public function Activate()
     {
+        dd('here');
         $validated = $this->validate();
         $selected = $this->package;
         // dd($selected);
@@ -62,6 +63,7 @@ class ActivateAgentAccount extends Component
         if ($choosen[0]['locale'] === 'local') {
             $this->payWithFlutter($choosen);
         } else {
+            dd('here');
             $this->payWithWorldPay($choosen);
         }
     }
@@ -104,7 +106,7 @@ class ActivateAgentAccount extends Component
     {
 
         Stripe::setApiKey(env('STRIPE_SECRET'));
-
+        dd('here');
         header('Content-Type: application/json');
 
         $YOUR_DOMAIN = 'http://vandrezzermembership.test/';

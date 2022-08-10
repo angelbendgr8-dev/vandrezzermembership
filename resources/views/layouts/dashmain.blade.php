@@ -141,6 +141,9 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @livewireScripts
     <x-livewire-alert::scripts />
+    <script>
+        var elements = stripe.elements();
+    </script>
 </body>
 
 </html>
