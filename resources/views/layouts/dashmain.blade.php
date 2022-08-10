@@ -28,7 +28,7 @@
     <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@ryangjchandler/alpine-clipboard@2.x.x/dist/alpine-clipboard.js" defer></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script src="https://js.stripe.com/v3/"></script>
+    <script defer src="https://js.stripe.com/v3/"></script>
     {{-- <style>
         body{
             font-family: jost
