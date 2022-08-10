@@ -40,15 +40,16 @@ class ActivateAgentAccount extends Component
         //  dd($ip);
         $position = Location::get();
         //  dd($position);
-        if (!$position) {
-            $this->packages = AgentPackages::whereLocale('foreign')->get();
-        }
-        // if($position->countryName === 'Nigeria'){
-        // }else{
-        //     $this->packages = AgentPackages::whereLocale('local')->get();
-        //     // $this->packages = AgentPackages::whereLocale('local')->get();
-        //     // dd($this->packages);
+        // if (!$position) {
+        //     $this->packages = AgentPackages::whereLocale('foreign')->get();
         // }
+        if($position->countryName === 'Nigeria'){
+            $this->packages = AgentPackages::whereLocale('local')->get();
+        }else{
+            $this->packages = AgentPackages::whereLocale('foreign')->get();
+            // $this->packages = AgentPackages::whereLocale('local')->get();
+            // dd($this->packages);
+        }
     }
     public function Activate()
     {
