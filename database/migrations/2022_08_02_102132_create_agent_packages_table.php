@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('agent_packages', function (Blueprint $table) {
             $table->id();
             $table->string('locale');
-            $table->foreignId('agent_package_id')->constrained('agent_packages');
             $table->string('name');
             $table->string('price');
             $table->timestamps();

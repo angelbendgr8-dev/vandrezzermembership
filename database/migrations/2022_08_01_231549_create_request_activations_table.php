@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('request_activations', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->foreignId('agent_package_id')->constrained('agent_packages');
             $table->double('amount')->nullable();
             $table->timestamps();
         });
