@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreignId('agent_package_id')->constrained('agent_packages');
             $table->double('amount')->nullable();
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }

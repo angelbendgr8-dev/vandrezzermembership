@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{{ asset('app.97259382.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    {{-- @vite('resources/css/app.css') --}}
+    @vite('resources/css/app.css')
     <!-- Styles -->
     <style>
         [x-cloak] {
@@ -26,7 +26,7 @@
     </style>
 
 
-    <script defer src="https://js.stripe.com/v3/"></script>
+    <script defer src="https://js.stripe.com/v2/"></script>
     {{-- <style>
         body{
             font-family: jost
@@ -119,38 +119,43 @@
     <div class="mx-auto w-[100%] md:w-[50%]">
         <div class="   shadow-xl bg-white pt-4 pb-16 mt-4">
             <form role="form" action="{{ route('stripe.process.payment') }}" method="post"
-                class="require-validation" data-cc-on-file="false"
+                class="require-validation px-12 flex flex-col  justify-center" data-cc-on-file="false"
                 data-stripe-publishable-key="{{ env('STRIPE_KEY') }}" id="payment-form">
                 @csrf
-                <div class='form-row row'>
-                    <div class='col-xs-12 col-md-6 form-group required'>
+
+
+                <div class='flex flex-col  w-[100%]'>
+                    <div class='flex flex-col required'>
                         <label class='control-label'>Name on Card</label>
-                        <input class='form-control' size='4' type='text'>
+                        <input class=' p-2  focus:border-[#EF7D00] focus:ring-0 duration-300 rounded-md  border-2  border-gray-300 ' type='text'>
                     </div>
-                    <div class='col-xs-12 col-md-6 form-group required'>
+                    <div class=' w-full my-4 mx-auto flex flex-col required'>
                         <label class='control-label'>Card Number</label>
-                        <input autocomplete='off' class='form-control card-number' size='20' type='text'>
+                        <input autocomplete='off' class=' p-2  focus:border-[#EF7D00] focus:ring-0 duration-300 rounded-md  border-2  border-gray-300  card-number' size='20' type='text'>
                     </div>
                 </div>
-                <div class='form-row row'>
-                    <div class='col-xs-12 col-md-4 form-group cvc required'>
+                <div class='grid grid-cols-1 content-center md:grid-cols-3 w-[100%]'>
+                    <div class='flex py-2 md:py-0  flex-col cvc required'>
                         <label class='control-label'>CVC</label>
-                        <input autocomplete='off' class='form-control card-cvc' placeholder='ex. 311' size='4'
+                        <input autocomplete='off' class=' p-2  focus:border-[#EF7D00] focus:ring-0 duration-300 rounded-md  border-2  border-gray-300  card-cvc' placeholder='ex. 311' size='4'
                             type='text'>
                     </div>
-                    <div class='col-xs-12 col-md-4 form-group expiration required'>
+                    <div class='flex  py-2 md:py-0 flex-col expiration required'>
                         <label class='control-label'>Expiration Month</label>
-                        <input class='form-control card-expiry-month' placeholder='MM' size='2' type='text'>
+                        <input class=' p-2  focus:border-[#EF7D00] focus:ring-0 duration-300 rounded-md  border-2  border-gray-300  card-expiry-month' placeholder='MM' size='2' type='text'>
                     </div>
-                    <div class='col-xs-12 col-md-4 form-group expiration required'>
+                    <div class='flex py-2 md:py-0  flex-col expiration required'>
                         <label class='control-label'>Expiration Year</label>
-                        <input class='form-control card-expiry-year' placeholder='YYYY' size='4' type='text'>
+                        <input class=' p-2  focus:border-[#EF7D00] focus:ring-0 duration-300 rounded-md  border-2  border-gray-300  card-expiry-year' placeholder='YYYY' size='4' type='text'>
                     </div>
                 </div>
-                <div class="form-row row">
-                    <div class="col-xs-12">
-                        <button class="btn btn-primary btn-lg btn-block" type="submit">Pay Now</button>
+                <div class="my-4">
+                    <div class="">
+                        <button class="bg-[#1D2949]  rounded-md py-2 text-white text-center w-full" type="submit">Pay Now</button>
                     </div>
+                </div>
+                <div>
+                    <img src="{{asset('images/stripe.png')}}" alt="">
                 </div>
             </form>
 
@@ -183,7 +188,7 @@
     <script src="{{ asset('build/assets/app.b4da555c.js') }}"></script>
     <script src="https://unpkg.com/@popperjs/core@2.9.1/dist/umd/popper.min.js" charset="utf-8"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-   c
+
 
     <script type="text/javascript">
         $(function() {

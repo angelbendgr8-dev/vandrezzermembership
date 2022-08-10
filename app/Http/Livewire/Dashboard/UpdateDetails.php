@@ -31,6 +31,15 @@ class UpdateDetails extends Component
         if($status){
 
             $this->checkPayment($status);
+        }else{
+            $activated = RequestActivation::whereUserId(Auth::id())->first();
+            if($activated->status === 'pending'){
+                $this->alert('success', 'Information updated successfully.');
+                $activated->delete();
+            }else{
+                session()->flash('message', 'Payment successful, your Activation request has been sent to the admin.');
+                $activated->delete();
+            }
         }
 
         $this->countries = DB::table('countries')->pluck('name');
