@@ -63,7 +63,7 @@ class ActivateAgentAccount extends Component
         if ($choosen[0]['locale'] === 'local') {
             $this->payWithFlutter($choosen);
         } else {
-            dd('here');
+            // dd('here');
             $this->payWithWorldPay($choosen);
         }
     }
