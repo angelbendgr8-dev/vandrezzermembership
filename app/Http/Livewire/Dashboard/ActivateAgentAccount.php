@@ -52,7 +52,7 @@ class ActivateAgentAccount extends Component
     }
     public function Activate()
     {
-        dd('here');
+        // dd('here');
         $validated = $this->validate();
         $selected = $this->package;
         // dd($selected);
@@ -106,10 +106,10 @@ class ActivateAgentAccount extends Component
     {
 
         Stripe::setApiKey(env('STRIPE_SECRET'));
-        dd('here');
+        dd('stripe');
         header('Content-Type: application/json');
 
-        $YOUR_DOMAIN = 'http://vandrezzermembership.test/';
+        // $YOUR_DOMAIN = 'http://vandrezzermembership.test/';
 
         $checkout_session = Session::create([
             'line_items' => [[
