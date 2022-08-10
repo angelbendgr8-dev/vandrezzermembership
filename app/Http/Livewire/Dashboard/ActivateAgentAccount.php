@@ -39,7 +39,7 @@ class ActivateAgentAccount extends Component
         $ip = request()->ip(); //Dynamic IP address get
         //  dd($ip);
         $position = Location::get();
-        //  dd($position);
+         dd($position);
         // if (!$position) {
         //     $this->packages = AgentPackages::whereLocale('foreign')->get();
         // }
