@@ -107,30 +107,31 @@ class ActivateAgentAccount extends Component
 
 
         // dd('stripe');
-        // header('Content-Type: application/json');
+        Stripe::setApiKey(env('STRIPE_SECRET'));
+        header('Content-Type: application/json');
 
-        // // $YOUR_DOMAIN = 'http://vandrezzermembership.test/';
+        // $YOUR_DOMAIN = 'http://vandrezzermembership.test/';
 
-        // $checkout_session = Session::create([
-        //     'line_items' => [[
-        //         # Provide the exact Price ID (e.g. pr_1234) of the product you want to sell
-        //         'price_data' => [
-        //             'currency'=> 'usd',
-        //             'product_data' =>[
-        //                 'name' => $choosen[0]['name'],
-        //             ],
-        //             'unit_amount' => $choosen[0]['price']
+        $checkout_session = Session::create([
+            'line_items' => [[
+                # Provide the exact Price ID (e.g. pr_1234) of the product you want to sell
+                'price_data' => [
+                    'currency'=> 'usd',
+                    'product_data' =>[
+                        'name' => $choosen[0]['name'],
+                    ],
+                    'unit_amount' => $choosen[0]['price']
 
-        //         ],
-        //         'quantity' => 1,
-        //     ]],
-        //     'mode' => 'payment',
-        //     'success_url' =>  route('branch.update.details'),
-        //     'cancel_url' =>  route('branch.update.details'),
-        // ]);
+                ],
+                'quantity' => 1,
+            ]],
+            'mode' => 'payment',
+            'success_url' =>  route('branch.update.details'),
+            'cancel_url' =>  route('branch.update.details'),
+        ]);
 
-        // header("HTTP/1.1 303 See Other");
-        // header("Location: " . $checkout_session->url);
+        header("HTTP/1.1 303 See Other");
+        header("Location: " . $checkout_session->url);
         // try {
 
 

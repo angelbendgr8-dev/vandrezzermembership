@@ -55,8 +55,8 @@ Route::middleware(['auth', 'user-access:manager'])->group(function () {
         Route::get('/branch/exco/list', ExcoList::class)->name('branch.excos');
         Route::get('/branch/add/exco', AddExco::class)->name('branch.add.exco');
     });
-    Route::get('/stripe-payment/{id}', [StripeController::class, 'handleGet'])->name('stripe.payment');
-    Route::post('/stripe-payment', [StripeController::class, 'handlePost'])->name('stripe.payment')->name('stripe.process.payment');
+    Route::get('/stripe-payment/{id}', [StripeController::class, 'getPaymentForm'])->name('stripe.payment');
+    Route::post('/stripe-payment', [StripeController::class, 'postPayment'])->name('stripe.process.payment');
 });
 Route::get('worldpay',function(){
     return view('livewire.dashboard.worldpay');

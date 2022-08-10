@@ -11,13 +11,13 @@ class StripeController extends Controller
 {
 
 
-    public function stripe($id)
+    public function getPaymentForm($id)
     {
-        dd($id);
+        // dd($id);/
         return view('stripe');
     }
 
-    public function stripePost(Request $request)
+    public function postPayment(Request $request)
     {
         Stripe::setApiKey(env('STRIPE_SECRET'));
         Charge::create ([
@@ -26,7 +26,7 @@ class StripeController extends Controller
                 "source" => $request->stripeToken,
                 "description" => "This is test payment",
         ]);
-
+        dd('success');
         Session::flash('success', 'Payment Successful !');
 
         return back();

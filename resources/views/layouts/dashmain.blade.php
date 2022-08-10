@@ -28,7 +28,7 @@
     <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@ryangjchandler/alpine-clipboard@2.x.x/dist/alpine-clipboard.js" defer></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script defer src="https://js.stripe.com/v3/"></script>
+
     {{-- <style>
         body{
             font-family: jost
@@ -139,6 +139,7 @@
     <script src="{{asset('build/assets/app.b4da555c.js')}}"></script>
     <script src="https://unpkg.com/@popperjs/core@2.9.1/dist/umd/popper.min.js" charset="utf-8"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script defer src="https://js.stripe.com/v2/"></script>
     @livewireScripts
     <x-livewire-alert::scripts />
     <script>
