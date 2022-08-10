@@ -16,7 +16,6 @@ use App\Models\RequestActivation;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
-use Stevebauman\Location\Facades\Location;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class ActivateAgentAccount extends Component
@@ -38,18 +37,18 @@ class ActivateAgentAccount extends Component
         $this->branch = MembershipClub::whereUserId(Auth::id())->first();
         $ip = request()->ip(); //Dynamic IP address get
         //  dd($ip);
-        dd(Location::get($ip));
-        //  dd($locationData);
+        $position = \Location::get($ip);
+        //  dd($position);
         // if (!$position) {
         //     $this->packages = AgentPackages::whereLocale('foreign')->get();
         // }
-        // if($position->countryName === 'Nigeria'){
-        //     $this->packages = AgentPackages::whereLocale('local')->get();
-        // }else{
-        //     $this->packages = AgentPackages::whereLocale('foreign')->get();
-        //     // $this->packages = AgentPackages::whereLocale('local')->get();
-        //     // dd($this->packages);
-        // }
+        if($position->countryName === 'Nigeria'){
+            $this->packages = AgentPackages::whereLocale('foreign')->get();
+        }else{
+            $this->packages = AgentPackages::whereLocale('local')->get();
+            // $this->packages = AgentPackages::whereLocale('local')->get();
+            // dd($this->packages);
+        }
     }
     public function Activate()
     {
