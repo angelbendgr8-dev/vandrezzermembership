@@ -37,9 +37,9 @@ class ActivateAgentAccount extends Component
 
         $this->branch = MembershipClub::whereUserId(Auth::id())->first();
         $ip = request()->ip(); //Dynamic IP address get
-         dd($ip);
-        $position = Location::get($ip);
-         dd($position);
+        //  dd($ip);
+        $locationData = Location::get($ip);
+         dd($locationData);
         // if (!$position) {
         //     $this->packages = AgentPackages::whereLocale('foreign')->get();
         // }
