@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{{ asset('app.51d85903.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    {{--  @vite('resources/css/app.css')  --}}
+    {{-- @vite('resources/css/app.css') --}}
     <!-- Styles -->
     <style>
         [x-cloak] {
@@ -127,36 +127,46 @@
                 <div class='flex flex-col  w-[100%]'>
                     <div class='flex flex-col required'>
                         <label class='control-label'>Name on Card</label>
-                        <input class=' p-2  focus:border-[#EF7D00] focus:ring-0 duration-300 rounded-md  border-2  border-gray-300 ' type='text'>
+                        <input
+                            class=' p-2  focus:border-[#EF7D00] focus:ring-0 duration-300 rounded-md  border-2  border-gray-300 '
+                            type='text'>
                     </div>
                     <div class=' w-full my-4 mx-auto flex flex-col required'>
                         <label class='control-label'>Card Number</label>
-                </div>
-                <input autocomplete='off' pattern="[0-9]" class=' p-2  focus:border-[#EF7D00] focus:ring-0 duration-300 rounded-md  border-2  border-gray-300  card-number' size='20' type='number'>
+                        <input autocomplete='off' pattern="[0-9]"
+                            class=' p-2  focus:border-[#EF7D00] focus:ring-0 duration-300 rounded-md  border-2  border-gray-300  card-number'
+                            size='20' type='number'>
                     </div>
                 </div>
+
                 <div class='grid grid-cols-1 content-center md:grid-cols-3 w-[100%]'>
                     <div class='flex py-2 md:py-0  flex-col cvc required'>
                         <label class='control-label'>CVC</label>
-                        <input autocomplete='off' pattern="[0-9]" maxlength="3" class=' p-2  focus:border-[#EF7D00] focus:ring-0 duration-300 rounded-md  border-2  border-gray-300  card-cvc' placeholder='ex. 311' size='4'
-                            type='number'>
+                        <input autocomplete='off' pattern="[0-9]" maxlength="3"
+                            class=' p-2  focus:border-[#EF7D00] focus:ring-0 duration-300 rounded-md  border-2  border-gray-300  card-cvc'
+                            placeholder='ex. 311' size='4' type='number'>
                     </div>
                     <div class='flex  py-2 md:py-0 flex-col expiration required'>
                         <label class='control-label'>Expiration Month</label>
-                        <input maxlength="2" pattern="[0-9]" class=' p-2  focus:border-[#EF7D00] focus:ring-0 duration-300 rounded-md  border-2  border-gray-300  card-expiry-month' placeholder='MM' size='2' type='number'>
+                        <input maxlength="2" pattern="[0-9]"
+                            class=' p-2  focus:border-[#EF7D00] focus:ring-0 duration-300 rounded-md  border-2  border-gray-300  card-expiry-month'
+                            placeholder='MM' size='2' type='number'>
                     </div>
                     <div class='flex py-2 md:py-0  flex-col expiration required'>
                         <label class='control-label'>Expiration Year</label>
-                        <input maxlength='4' pattern="[0-9]" class=' p-2  focus:border-[#EF7D00] focus:ring-0 duration-300 rounded-md  border-2  border-gray-300  card-expiry-year' placeholder='YYYY' size='4' type='number'>
+                        <input maxlength='4' pattern="[0-9]"
+                            class=' p-2  focus:border-[#EF7D00] focus:ring-0 duration-300 rounded-md  border-2  border-gray-300  card-expiry-year'
+                            placeholder='YYYY' size='4' type='number'>
                     </div>
                 </div>
                 <div class="my-4">
                     <div class="">
-                        <button class="bg-[#1D2949]  rounded-md py-2 text-white text-center w-full" type="submit">Pay Now</button>
+                        <button class="bg-[#1D2949]  rounded-md py-2 text-white text-center w-full" type="submit">Pay
+                            Now</button>
                     </div>
                 </div>
                 <div>
-                    <img src="{{asset('images/stripe.png')}}" alt="">
+                    <img src="{{ asset('images/stripe.png') }}" alt="">
                 </div>
             </form>
 
