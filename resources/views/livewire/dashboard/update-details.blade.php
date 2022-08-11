@@ -47,8 +47,7 @@
                     <label for="" class="w-[20%] hidden md:flex">Branch Unique Link</label>
                     <p class="w-[90vw] lg:w-full border-l border-white">
                         <a href="#" id="clubUrl">{{ route('user.join', $club->slug) }}</a>
-                        <input class="hidden" type="text" value="{{ route('user.join', $club->slug) }}"
-                            id="myInput">
+                        
                     </p>
                     <button class="bg-gray-300 text-2xl rounded-md p-2" onclick="myFunction()"><span
                             class="mdi mdi-share-variant"></span></button>
