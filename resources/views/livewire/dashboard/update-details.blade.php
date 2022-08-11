@@ -43,12 +43,15 @@
         </div>
         <div>
             <div class="self-center p-4 w-full border-b border-white  ">
-                <div class="flex flex-row justify-center items-start space-x-6 ">
-                    <label for="" class="w-[20%] hidden md:flex">Branch Unique Link</label>
-                    <p class="w-[90vw] lg:w-full border-l border-white">
-                        <a href="#" id="clubUrl">{{ route('user.join', $club->slug) }}</a>
-                        
-                    </p>
+                <div class="flex flex-row flex-wrap justify-center items-start space-x-6 ">
+                    <p for="" class="w-[20%] hidden md:flex">Branch Unique Link</p>
+                    <div>
+                        <p class=" lg:w-full border-l border-white">
+                            <a href="#" id="clubUrl">{{ route('user.join', $club->slug) }}</a>
+
+                        </p>
+
+                    </div>
                     <button class="bg-gray-300 text-2xl rounded-md p-2" onclick="myFunction()"><span
                             class="mdi mdi-share-variant"></span></button>
 
