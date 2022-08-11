@@ -26,7 +26,7 @@
             <div class=" flex flex-row justify-between border-b-2 border-[#EF7D00]">
                 <p class="text-lg font-bold  text-gray-900">Club Details</p>
 
-                @if (Auth::user()->status === 'inactive' && $number_of_supporters < 10)
+                @if (Auth::user()->status === 'inactive' && $number_of_supporters >10)
                     <div>
                         <a href='{{ route('branch.activate.account') }}'
                             class="bg-[#EF7D00]  px-6 text-white w-[20%] rounded-md py-1 text-center">
@@ -45,7 +45,7 @@
             <div class="self-center p-4 w-full border-b border-white  ">
                 <div class="flex flex-row justify-center items-start space-x-6 ">
                     <label for="" class="w-[20%] hidden md:flex">Branch Unique Link</label>
-                    <p class="w-full border-l border-white">
+                    <p class="w-[90vw] lg:w-full border-l border-white">
                         <a href="#" id="clubUrl">{{ route('user.join', $club->slug) }}</a>
                         <input class="hidden" type="text" value="{{ route('user.join', $club->slug) }}"
                             id="myInput">
