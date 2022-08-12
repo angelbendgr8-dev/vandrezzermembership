@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="{{asset('app.a9ec0ef8.css') }}">
 
-    {{--  @vite('resources/css/app.css')  --}}
+    @vite('resources/css/app.css')
     <!-- Styles -->
     <style>
         [x-cloak] {
@@ -42,7 +42,7 @@
         <div
             class="px-auto mx-auto w-[100%] md:w-[75%] flex flex-col  md:flex-row justify-between items-center text-white">
             <div class="flex flex-row justify-center items-center space-x-4">
-                <img src="{{ asset('images/logo.png') }}" class="h-36 border-r pr-5" alt="">
+                <img src="{{ asset('images/logo.png') }}" class="h-24 md:h-36 border-r pr-5" alt="">
                 <p class="uppercase font-jost text-4xl font-bold">Official <br />Supporters <br> Club</p>
             </div>
             @auth

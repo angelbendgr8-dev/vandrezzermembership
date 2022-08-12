@@ -1,5 +1,5 @@
-<div class="mx-auto w-[100%] md:w-[50%]">
-    <div class="   shadow-xl bg-white my-8 py-4">
+<div class=" mx-auto flex flex-col self-center w-[100%] md:w-[50%]">
+    <div class=" flex flex-col my-10  justify-center drop-shadow-lg   shadow-xl bg-white md:h-auto py-4">
         <p class="text-lg font-bold text-center px-32 my-2 text-gray-900">Login</p>
         <p class="text-md text-center px-4 md:px-16 lg:px-32 my-8 text-gray-900">Please enter your email and password to login. </p>
         <div class="">
@@ -44,7 +44,7 @@
 
                 <div class="flex justify-center">
 
-                    <a href='#' wire:click='Login' class="bg-[#1D2949] w-[20%] rounded-md py-2 text-white text-center">
+                    <a href='#' wire:click='Login' class="bg-[#1D2949] w-[80%] md:w-[20%] rounded-md py-2 text-white text-center">
                         <div wire:loading wire:target='Login' class=" mdi mdi-loading animate-spin"></div>
                         <span wire:loading.remove wire:target='Login' >Login</span>
                     </a>
