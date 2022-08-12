@@ -26,7 +26,7 @@
             <div class=" flex flex-row justify-between border-b-2 border-[#EF7D00]">
                 <p class="text-lg font-bold  text-gray-900">Club Details</p>
 
-                @if (Auth::user()->status === 'inactive' && $number_of_supporters >10)
+                @if (Auth::user()->status === 'inactive' && $number_of_supporters <10)
                     <div>
                         <a href='{{ route('branch.activate.account') }}'
                             class="bg-[#EF7D00]  px-6 text-white w-[20%] rounded-md py-1 text-center">
@@ -43,16 +43,16 @@
         </div>
         <div>
             <div class="self-center p-4 w-full border-b border-white  ">
-                <div class="flex flex-row justify-center items-start space-x-6 ">
+                <div class="flex flex-row justify-center items-start space-x-0 sm:space-x-6 ">
                     <label for="" class="w-[20%] hidden md:flex">Branch Unique Link</label>
                     <p class="w-[90vw] w-full border-l border-white">
                         <a href="#" class="hidden md:flex" id="clubUrl">{{ substr(route('user.join', $club->slug),0,100) }}</a>
-                        <input type="text" class="flex sm:hidden rounded-md text-gray-300 bg-slate-600" disabled value="Copy branch Url">
+                        <input type="text" class="flex sm:hidden rounded-md text-gray-300 bg-blue-100 border-0" disabled value="{{ route('user.join', $club->slug) }}">
                         <input class="hidden" type="text" value="{{ route('user.join', $club->slug) }}"
                             id="myInput">
                     </p>
                     <button class="bg-gray-300 text-2xl rounded-md p-2" onclick="myFunction()"><span
-                            class="mdi mdi-share-variant"></span></button>
+                            class="mdi mdi-content-copy"></span></button>
 
                 </div>
 

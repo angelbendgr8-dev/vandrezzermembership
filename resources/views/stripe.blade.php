@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ asset('app.905c5bb5.css') }}">
+    <link rel="stylesheet" href="{{ asset('app.a9ec0ef8.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     {{--  @vite('resources/css/app.css')  --}}
@@ -118,7 +118,7 @@
 
     <div class="mx-auto w-[100%] md:w-[50%]">
         <div class="   shadow-xl bg-white pt-4 pb-16 mt-4">
-
+            <p class="font-semibold text-[#1D2949] text-center text-2xl capitalize mb-8">{{$package->name }} Account Activation</p>
             <form role="form" action="{{ route('stripe.process.payment') }}" method="post"
                 class="require-validation px-12 flex flex-col  justify-center" data-cc-on-file="false"
                 data-stripe-publishable-key="{{ env('STRIPE_KEY') }}" id="payment-form">
@@ -176,8 +176,8 @@
                 </div>
                 <div class="my-4">
                     <div class="">
-                        <button class="bg-[#1D2949]  rounded-md py-2 text-white text-center w-full" type="submit">Pay
-                            Now</button>
+                        <button class="bg-[#1D2949] font-medium  rounded-md py-2 text-white text-center w-full" type="submit">Pay
+                            ${{$package->price}}</button>
                     </div>
                 </div>
                 <div>

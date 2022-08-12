@@ -36,8 +36,9 @@ class StripeController extends Controller
 
     public function getPaymentForm($id)
     {
+        $package = AgentPackages::find($id);
 
-        return view('stripe',['id'=>$id])->with(['id'=>$id]);
+        return view('stripe',['package'=>$package]);
     }
 
     public function postPayment(Request $request)
