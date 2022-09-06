@@ -6,13 +6,13 @@
                 <img src="{{ asset('images/logo.png') }}" class="" alt="">
             @elseif($uploader->type === 'manager')
                 @if ($uploader->profile_pics)
-                    <img class='rounded-full h-16 w-32' src="{{ asset('/storage/' . $uploader->profile_pics) }}" alt="">
+                    <img src="{{ asset('/storage/' . $uploader->profile_pics) }}" alt="">
                 @else
                     <span class="mdi mdi-account-circle text-3xl text-gray-400"></span>
                 @endif
             @else
                 @if ($uploader->profile_pics)
-                    <img class='rounded-full h-16 w-32' src="{{ asset('/storage/' . $uploader->profile_pics) }}" alt="">
+                    <img src="{{ asset('/storage/' . $uploader->profile_pics) }}" alt="">
                 @else
                     <span class="mdi mdi-account-circle text-3xl text-gray-400"></span>
                 @endif

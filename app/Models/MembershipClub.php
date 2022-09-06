@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
+
 use Illuminate\Database\Eloquent\Relations\HasMany;
-<<<<<<< Updated upstream
+
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-=======
->>>>>>> Stashed changes
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class MembershipClub extends Model
@@ -42,8 +42,6 @@ class MembershipClub extends Model
         }
         return $slug;
     }
-<<<<<<< Updated upstream
-
     /**
      * Get the user that owns the MembershipClub
      *
@@ -61,15 +59,6 @@ class MembershipClub extends Model
     public function members(): HasMany
     {
         return $this->hasMany(User::class,'club_id');
-=======
-    /**
-     * Get all of the comments for the MembershipClub
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function users(): HasMany
-    {
-        return $this->hasMany(User::class);
->>>>>>> Stashed changes
     }
+
 }

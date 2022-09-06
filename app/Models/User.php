@@ -6,7 +6,6 @@ namespace App\Models;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -75,25 +74,5 @@ class User extends Authenticatable
     }
     public function club(){
         return $this->hasOne(MembershipClub::class,'user_id','id')->withDefault();
-    }
-
-    /**
-<<<<<<< Updated upstream
-     * Get the myclub that owns the User
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function myclub(): BelongsTo
-    {
-        return $this->belongsTo(MembershipClub::class, 'club_id');
-=======
-     * Get the mclub that owns the User
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function mclub(): BelongsTo
-    {
-        return $this->belongsTo(MembershipClub::class,'club_id');
->>>>>>> Stashed changes
     }
 }

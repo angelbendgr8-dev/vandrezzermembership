@@ -2,11 +2,8 @@
 
 namespace App\Http\Livewire\Admin;
 
-<<<<<<< Updated upstream
 use App\Models\MembershipClub;
-=======
 use App\Exports\ManagerExport;
->>>>>>> Stashed changes
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -23,16 +20,9 @@ class Dashboard extends Component
         $this->resetPage();
     }
 
-<<<<<<< Updated upstream
-    public function mount(){
-        $managers = MembershipClub::with('manager','members')->paginate(25);
-
-=======
     public function mount()
     {
-        $managers = User::whereType(2)->with('club')->paginate(25);
-        // dd($managers);
->>>>>>> Stashed changes
+        $managers = MembershipClub::with('manager', 'members')->paginate(25);
     }
     public function export()
     {
@@ -41,23 +31,12 @@ class Dashboard extends Component
 
     public function getManager()
     {
-<<<<<<< Updated upstream
-        if(!empty($this->search)){
-           return  MembershipClub::
-                            where('name','like','%'.$this->search.'%')
-                            ->with('manager','members')
-                            ->paginate(25);
-        }else{
-            return  MembershipClub::with('manager','members')->paginate(25);
-=======
         if (!empty($this->search)) {
-            return  User::whereType(2)
-                ->where('status', 'like', '%' . $this->search . '%')
-                ->with('club')
+            return  MembershipClub::where('name', 'like', '%' . $this->search . '%')
+                ->with('manager','members')
                 ->paginate(25);
         } else {
-            return  User::whereType(2)->with('club')->paginate(25);
->>>>>>> Stashed changes
+            return  MembershipClub::with('manager', 'members')->paginate(25);
         }
     }
     public function render()
