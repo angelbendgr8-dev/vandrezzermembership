@@ -2,10 +2,22 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use ALajusticia\Expirable\Traits\Expirable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class OtpCode extends Model
 {
     use HasFactory;
+    use Expirable;
+
+    protected $fillable = [
+        'code','email'
+    ];
+
+    public static function defaultExpiresAt()
+    {
+        return Carbon::now()->addMinutes(10);
+    }
 }

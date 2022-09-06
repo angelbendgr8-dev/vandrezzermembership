@@ -10,7 +10,7 @@
 
                         @if ($user->profile_pics)
                             <div>
-                                <img src="{{ asset('/storage/'.$user->profile_pics)  }}" alt="">
+                                <img class='rounded-full h-16 w-32' src="{{ asset('/storage/'.$user->profile_pics)  }}" alt="">
                             </div>
                             <span
                                 class="absolute -bottom-2 -right-[0.15rem] rounded-full mdi mdi-pencil text-[#1D2949] text-2xl"></span>

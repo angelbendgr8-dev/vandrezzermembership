@@ -25,7 +25,7 @@
                             <th scope="col" class="py-3 px-6">
                                 Display Name
                             </th>
-                           
+
                         </tr>
                     </thead>
                     <tbody>
@@ -39,7 +39,7 @@
                             </tr>
                         @endforelse
 
-
+                        
                     </tbody>
                 </table>
 
