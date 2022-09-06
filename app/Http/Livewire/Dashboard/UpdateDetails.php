@@ -24,7 +24,7 @@ class UpdateDetails extends Component
         'club.club_email' => 'required|email',
         'club.club_mobile' => 'required|string',
     ];
-    public function mount($status = '', $tx_ref = '', $transaction_id = '')
+    public function mount($status = '')
     {
         // $worldpay = new Worldpay('your-test-service-key');
         $status = request()->query('status');
@@ -40,7 +40,7 @@ class UpdateDetails extends Component
                 session()->flash('message', 'Payment successful, your Activation request has been sent to the admin.');
                 $activated->delete();
             }else{
-                
+
             }
         }
 

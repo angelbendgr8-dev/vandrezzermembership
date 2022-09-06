@@ -13,11 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('otp_codes', function (Blueprint $table) {
-            $table->id();
-            $table->string('code');
-            $table->string('email')->nullable();
-            $table->timestamps();
+        Schema::table('otp_codes', function (Blueprint $table) {
+            $table->expirable();
         });
     }
 
@@ -28,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('otp_codes');
+        Schema::table('otp_codes', function (Blueprint $table) {
+            $table->dropExpirable();
+        });
     }
 };

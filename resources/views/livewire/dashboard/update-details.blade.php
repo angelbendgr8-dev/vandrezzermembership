@@ -1,10 +1,11 @@
 <div class="mx-auto w-[100%] md:w-[60%]">
-    <div x-data="{ open: true }" >
-        @if (session()->has('warning'))class="flex items-center justify-center my-2"
-        <div x-show='open' class="bg-orange-500 w-[80%]  md:w-[40%] rounded-sm py-2 text-center text-white">
+    <div x-data="{ open: true }">
+        @if (session()->has('warning'))
+            class="flex items-center justify-center my-2"
+            <div x-show='open' class="bg-orange-500 w-[80%]  md:w-[40%] rounded-sm py-2 text-center text-white">
 
-            {{ session('warning') }}
-            <button @click="open = ! open" class="float-right mr-2"><span class="mdi mdi-close-box"></span></button>
+                {{ session('warning') }}
+                <button @click="open = ! open" class="float-right mr-2"><span class="mdi mdi-close-box"></span></button>
 
             </div>
         @endif
@@ -12,10 +13,10 @@
     </div>
     <div x-data="{ open: true }" class="flex items-center justify-center my-2">
         @if (session()->has('message'))
-        <div x-show='open' class="bg-green-500 w-[80%]  md:w-[40%] rounded-sm py-2 text-center text-white">
+            <div x-show='open' class="bg-green-500 w-[80%]  md:w-[40%] rounded-sm py-2 text-center text-white">
 
-            {{ session('message') }}
-            <button @click="open = ! open" class="float-right mr-2"><span class="mdi mdi-close-box"></span></button>
+                {{ session('message') }}
+                <button @click="open = ! open" class="float-right mr-2"><span class="mdi mdi-close-box"></span></button>
 
             </div>
         @endif
@@ -26,7 +27,7 @@
             <div class=" flex flex-row justify-between border-b-2 border-[#EF7D00]">
                 <p class="text-lg font-bold  text-gray-900">Club Details</p>
 
-                @if (Auth::user()->status === 'inactive' && $number_of_supporters <10)
+                @if (Auth::user()->status === 'inactive' && $number_of_supporters < 10)
                     <div>
                         <a href='{{ route('branch.activate.account') }}'
                             class="bg-[#EF7D00]  px-6 text-white w-[20%] rounded-md py-1 text-center">
@@ -46,8 +47,10 @@
                 <div class="flex flex-row justify-center items-start space-x-0 sm:space-x-6 ">
                     <label for="" class="w-[20%] hidden md:flex">Branch Unique Link</label>
                     <p class="w-[90vw] w-full border-l border-white">
-                        <a href="#" class="hidden md:flex" id="clubUrl">{{ substr(route('user.join', $club->slug),0,100) }}</a>
-                        <input type="text" class="flex sm:hidden rounded-md text-gray-300 bg-blue-100 border-0" disabled value="{{ route('user.join', $club->slug) }}">
+                        <a href="#" class="hidden md:flex"
+                            id="clubUrl">{{ substr(route('user.join', $club->slug), 0, 100) }}</a>
+                        <input type="text" class="flex sm:hidden rounded-md text-gray-300 bg-blue-100 border-0"
+                            disabled value="{{ route('user.join', $club->slug) }}">
                         <input class="hidden" type="text" value="{{ route('user.join', $club->slug) }}"
                             id="myInput">
                     </p>
