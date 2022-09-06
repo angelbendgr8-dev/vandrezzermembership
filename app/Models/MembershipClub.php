@@ -4,8 +4,6 @@ namespace App\Models;
 
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class MembershipClub extends Model
@@ -38,24 +36,5 @@ class MembershipClub extends Model
             return "{$slug}-2";
         }
         return $slug;
-    }
-
-    /**
-     * Get the user that owns the MembershipClub
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function manager(): BelongsTo
-    {
-        return $this->belongsTo(User::class, 'user_id');
-    }
-    /**
-     * Get all of the users for the MembershipClub
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function members(): HasMany
-    {
-        return $this->hasMany(User::class,'club_id');
     }
 }

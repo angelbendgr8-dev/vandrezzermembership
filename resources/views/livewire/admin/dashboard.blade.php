@@ -32,10 +32,6 @@
                             </th>
                             <th scope="col" class="py-3 px-6">
                                 club name
-                            </th>
-                            <th scope="col" class="py-3 px-6">
-                                users
-                            </th>
 
                             <th scope="col" class="py-3 px-6">
                                 Action
