@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Admin;
 
-use App\Models\MembershipClub;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -19,18 +18,18 @@ class Dashboard extends Component
     }
 
     public function mount(){
-        $managers = MembershipClub::with('manager','members')->paginate(25);
-
+        $managers = User::whereType(2)->with('club')->paginate(25);
+        // dd($managers);
     }
     public function getManager()
     {
         if(!empty($this->search)){
-           return  MembershipClub::
-                            where('name','like','%'.$this->search.'%')
-                            ->with('manager','members')
+           return  User::whereType(2)
+                            ->where('status','like','%'.$this->search.'%')
+                            ->with('club')
                             ->paginate(25);
         }else{
-            return  MembershipClub::with('manager','members')->paginate(25);
+            return  User::whereType(2)->with('club')->paginate(25);
         }
     }
     public function render()

@@ -40,11 +40,6 @@
 
             </div>
 
-            <div class="clear-right mr-14">
-                <a href={{route('reset.password')}} class="float-right">Forgot Password</a>
-
-            </div>
-
             <div class="self-center mb-4 w-full clear-right">
 
                 <div class="flex justify-center">
@@ -54,9 +49,7 @@
                         <span wire:loading.remove wire:target='Login' >Login</span>
                     </a>
 
-
                 </div>
-                
             </div>
 
 
