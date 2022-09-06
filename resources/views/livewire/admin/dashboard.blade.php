@@ -8,6 +8,7 @@
                     <input wire:model='search'
                         class="my-2  p-2 focus:border-[#EF7D00] focus:ring-0 duration-300 rounded-md  border-2  border-gray-300"
                         type="text">
+                    <a href="#" wire:click='export' class="px-4 py-2 rounded-md bg-[#1D2949] text-white ">Export</a>
                 </div>
             </div>
         </div>
@@ -26,6 +27,9 @@
                             </th>
                             <th scope="col" class="py-3 px-6">
                                 Email
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                Mobile Number
                             </th>
                             <th scope="col" class="py-3 px-6">
                                 Status

@@ -78,6 +78,7 @@ class User extends Authenticatable
     }
 
     /**
+<<<<<<< Updated upstream
      * Get the myclub that owns the User
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -85,5 +86,14 @@ class User extends Authenticatable
     public function myclub(): BelongsTo
     {
         return $this->belongsTo(MembershipClub::class, 'club_id');
+=======
+     * Get the mclub that owns the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function mclub(): BelongsTo
+    {
+        return $this->belongsTo(MembershipClub::class,'club_id');
+>>>>>>> Stashed changes
     }
 }

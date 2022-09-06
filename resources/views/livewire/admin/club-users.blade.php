@@ -3,7 +3,7 @@
         <div class="my-2">
             <div class="flex flex-row justify-between border-b-2 border-[#EF7D00]">
                 <p class="text-lg font-medium  text-gray-900">{{$club->name?? ''}} Users List</p>
-
+                <a href="#" wire:click='export' class="px-4 py-2 rounded-md bg-[#1D2949] text-white ">Export</a>
             </div>
         </div>
         <div>
@@ -21,6 +21,9 @@
                             </th>
                             <th scope="col" class="py-3 px-6">
                                 Email
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                Mobile Number
                             </th>
                             <th scope="col" class="py-3 px-6">
                                 Display Name
