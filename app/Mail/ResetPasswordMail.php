@@ -2,38 +2,32 @@
 
 namespace App\Mail;
 
-use App\Models\User;
+use App\Models\OtpCode;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class UserRegistration extends Mailable
+class ResetPasswordMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-         /**
+        /**
      * The order instance.
      *
-     * @var \App\Models\User
+     * @var \App\Models\OtpCode
      */
-    public $user;
+    public $otp_code;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct(User $user)
+    public function __construct(OtpCode $otp_code)
     {
-        $this->user = $user;
+        $this->otp_code = $otp_code;
     }
-
 
     /**
      * Build the message.
@@ -42,6 +36,6 @@ class UserRegistration extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.user_registration');
+        return $this->view('emails.otp_email_template');
     }
 }

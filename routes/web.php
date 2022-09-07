@@ -6,10 +6,12 @@ use App\Http\Livewire\User\Forum;
 use App\Http\Livewire\User\AddPost;
 use App\Http\Livewire\User\Profile;
 use App\Http\Livewire\Auth\Register;
+use App\Http\Livewire\ResetPassword;
 use App\Http\Livewire\User\ViewPost;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Livewire\Admin\ClubInfo;
 use App\Http\Livewire\Admin\Packages;
+use App\Http\Livewire\ChangePassword;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Admin\ClubUsers;
 use App\Http\Livewire\Admin\Dashboard;
@@ -23,6 +25,7 @@ use App\Http\Livewire\Dashboard\BranchDetails;
 use App\Http\Livewire\Dashboard\UpdateDetails;
 use App\Http\Livewire\User\ExcoList as UserExcoList;
 use App\Http\Livewire\Dashboard\ActivateAgentAccount;
+use App\Http\Livewire\VerifyEmail;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +46,9 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/', Login::class)->name('branch.login');
     Route::get('/join/supporter/{slug}', Register::class)->name('user.join');
     Route::get('/activate/agent', ActivateAgent::class)->name('activate.agent');
+    Route::get('/forgot/password', ResetPassword::class)->name('reset.password');
+    Route::get('/verify/email', VerifyEmail::class)->name('verify.email');
+    Route::get('/change/password', ChangePassword::class)->name('change.password');
 });
 
 
